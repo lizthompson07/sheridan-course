@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
 import os
 import dj_database_url
@@ -27,8 +26,10 @@ SECRET_KEY = 'django-insecure-1q&j96ze#lyob@0myeoxg!z9jvswu=8%@(rk$(#blp5gep^b0&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Note: this is not a secure setting from production as it allows the site to be hosted from any webserver / domain.
-# In a production environment, this setting would be configured to match the domain on which the site is intended on being viewed.
+# Note: this is not a secure setting from production as it allows the site to be hosted from
+# any webserver / domain.
+# In a production environment, this setting would be configured to match the domain on
+# which the site is intended on being viewed.
 ALLOWED_HOSTS = ['*']
 
 
