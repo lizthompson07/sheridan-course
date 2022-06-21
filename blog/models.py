@@ -101,7 +101,7 @@ class Comment(models.Model):
     """
     post = models.ForeignKey(
         Post,
-        on_delete=models.PROTECT,  # Prevent comments from being deleted
+        on_delete=models.CASCADE,  # Prevent comments from being deleted
         related_name='comments',  # "This" on the post model
         null=False,
     )
