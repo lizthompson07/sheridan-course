@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from . import views
+from blog import views
 
 urlpatterns = [
-    path('', views.index),  # Add our index view to the URL patterns
+    path('', views.home, name="home"),  # Add our index view to the URL patterns
     path('admin/', admin.site.urls),
 ]
