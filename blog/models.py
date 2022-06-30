@@ -3,6 +3,7 @@ from django.conf import settings # Imports Django's loaded settings
 from django.db import models
 
 # Create your models here.
+from django.db.models import Count
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 
@@ -36,6 +37,9 @@ class PostQuerySet(models.QuerySet):
         User = get_user_model()
         # Get the users who are authors of this queryset
         return User.objects.filter(blog_posts__in=self).distinct()
+
+    def get_number_posts_by_topic(self):
+        return Topic.objects.filter(blog_posts__in=self).annotate(posts_count=Count('blog_posts')).order_by('-posts_count')
 
 
 class Post(models.Model):

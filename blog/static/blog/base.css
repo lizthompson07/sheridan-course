@@ -2,9 +2,11 @@
 
 html {
   height: 100%; /* Use whole height of browser */
+
 }
 
 body {
+  background-image: url('/static/blog/flowers-background.png');
   display: grid;  /* Use CSS grid */
   font-family: Arial, Helvetica, sans-serif;
   grid-template-rows: auto auto 1fr auto;  /* Sticky footer */
@@ -12,6 +14,18 @@ body {
   max-width: 2000px;  /* Set max width */
   min-height: 100%;  /* Full height */
   padding: 1rem;
+
+}
+
+/* container */
+.container{
+  width: 70%;
+  height: flex;
+  margin: auto;
+  position: center;
+  padding: 20px 50px 20px 50px;
+  background-color: darkseagreen;
+
 }
 
 /*

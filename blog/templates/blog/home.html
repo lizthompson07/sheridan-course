@@ -24,6 +24,15 @@
           {% endfor %}
         </ul>
     </section>
+
+    <section id="topic-list">
+      <h3>Topics</h3>
+        <ul>
+          {% for topic in topics %}
+            <li>{{ topic }} ({{ topic.posts_count }})</li>
+          {% endfor %}
+        </ul>
+    </section>
   </aside>
 
   {% endblock %}
