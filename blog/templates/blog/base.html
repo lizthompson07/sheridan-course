@@ -54,6 +54,7 @@
             <a href="{% url 'topic-detail' topic.slug %}">{{ topic }} ({{ topic.posts_count }})</a>
           </li>
           {% endfor %}
+          <li><em><a href="{% url 'topic-list' %}">...(view all topics)</a></em></li>
         </ul>
       </section>
     </aside>
