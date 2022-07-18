@@ -1,0 +1,20 @@
+{# blog/templates/blog/post_detail.html #}
+{% extends "blog/base.html" %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
+
+{% block main %}
+<article id="post-detail-article">
+  <h1>{{ post.title }}</h1>
+  <span class="published">Published <time>{{ post.published }}</time></span><br>
+  <span class="author">{{ post.author.get_full_name }}</span><br>
+
+  <span class="links">
+    {% for topic in object.topics.all %}
+      <a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a>
+    {% endfor %}
+  </span>
+
+  <section class="content">{{ post.content|linebreaks }}</section>
+</article>
+{% endblock %}

@@ -99,3 +99,50 @@ img {
 #site-footer {
   font-size: 0.9rem;
 }
+
+/* Post preview */
+.post-preview {
+  border-bottom: 1px #eee solid;
+}
+.post-preview h2 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.post-preview time {
+  color: #8c8c8c;
+}
+
+.post-preview section {
+  margin: 1rem 0;
+}
+
+/* Post detail article */
+#post-detail-article h1 {
+  margin-bottom: 0.1;
+  padding-bottom: 0.1;
+}
+
+#post-detail-article .author {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+#post-detail-article .published {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+#post-detail-article a {
+  font-size: 0.9rem;
+}
+
+#post-detail-article .content {
+  margin: 2rem 0;
+}

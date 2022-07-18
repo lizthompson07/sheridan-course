@@ -7,33 +7,10 @@
   <section class="latest-article-preview">
 
     {% for post in latest_posts %}
-    <article>
-    <h3>{{ post.title }}</h3>
-    <em>{{ post.published|timesince }} ago</em>
-    {{ post.content|linebreaks }}
-    </article>
+      {% include "blog/post_preview.html" %}
     {% endfor %}
 
   </section>
-  <aside id="sidebar">
-    <section id="author-list">
-      <h3>Authors</h3>
-        <ul>
-          {% for author in authors %}
-            <li>{{ author.get_full_name }}</li>
-          {% endfor %}
-        </ul>
-    </section>
-
-    <section id="topic-list">
-      <h3>Topics</h3>
-        <ul>
-          {% for topic in topics %}
-            <li>{{ topic }} ({{ topic.posts_count }})</li>
-          {% endfor %}
-        </ul>
-    </section>
-  </aside>
 
   {% endblock %}
 
