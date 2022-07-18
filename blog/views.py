@@ -90,7 +90,7 @@ class TopicListView(ListView):
     context_object_name = 'all_topics'  # make sure this isn't the same as in context_processors
 
     # get just the list of topics from posts that have been published
-    queryset = models.Topic.objects.filter(blog_posts__status='published').distinct()
+    queryset = models.Topic.objects.filter(blog_posts__status='published').distinct().order_by('name')
 
 
 class TopicDetailView(DetailView):
