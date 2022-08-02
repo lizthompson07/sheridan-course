@@ -9,12 +9,16 @@
   <span class="published">Published <time>{{ post.published }}</time></span><br>
   <span class="author">{{ post.author.get_full_name }}</span><br>
 
+  {% if post.banner %}
+    <img src="{{ post.banner.url }}" width="100%" alt="Banner image"><br>
+  {% endif %}
+
   <span class="links">
     {% for topic in object.topics.all %}
       <a href="{% url 'topic-detail' topic.slug %}">{{ topic.name }}</a>
     {% endfor %}
   </span>
 
-  <section class="content">{{ post.content|linebreaks }}</section>
+  <section class="content">{{ post.content|safe|linebreaks }}</section>
 </article>
 {% endblock %}

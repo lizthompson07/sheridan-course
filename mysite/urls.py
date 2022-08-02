@@ -13,14 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from blog import views
+from django.conf import settings
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name="home"),  # Add our index view to the URL patterns
     path('admin/', admin.site.urls),
+    # path('form-example/', views.form_example, name='form-example'),
+    path(
+        'formview-example/',
+        views.FormViewExample.as_view(),
+        name='formview-example'
+    ),
+    path('contact/', views.ContactFormView.as_view(), name='contact'),
+    path('contest/', views.ContestFormView.as_view(), name='contest'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('terms/', views.terms_and_conditions, name='terms-and-conditions'),
     path('posts/', views.PostListView.as_view(), name='post-list'),
@@ -36,4 +46,5 @@ urlpatterns = [
     ),
     path('topics/', views.TopicListView.as_view(), name='topic-list'),
     path('topics/<slug:slug>/', views.TopicDetailView.as_view(), name='topic-detail'),
-]
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

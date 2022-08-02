@@ -86,6 +86,56 @@ class TopicAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+@admin.register(models.Contact)
+class ContactAdmin(admin.ModelAdmin):
+    """
+    Set default admin view for Contact
+    """
+
+    list_display = (
+        'email',
+        'last_name',
+        'first_name',
+        'submitted'
+    )
+    # Make these fields read-only in the admin
+    readonly_fields = (
+        'first_name',
+        'last_name',
+        'email',
+        'message',
+        'submitted'
+    )
+
+
+@admin.register(models.Contest)
+class ContestAdmin(admin.ModelAdmin):
+    """
+    Set default admin view for Contact
+    """
+    ordering = ['-submitted']
+
+    list_display = (
+        'email',
+        'last_name',
+        'first_name',
+        'submitted'
+    )
+    # Make these fields read-only in the admin
+    readonly_fields = (
+        'first_name',
+        'last_name',
+        'email',
+        'photo',
+        'submitted'
+    )
+
+    search_fields = (
+        'first_name',
+        'last_name',
+        'email',
+    )
+
 admin.site.register(models.Post, PostAdmin)
 admin.site.register(models.Comment, CommentAdmin)
 

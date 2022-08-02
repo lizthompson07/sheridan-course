@@ -2,11 +2,12 @@
 from django.conf import settings # Imports Django's loaded settings
 from django.db import models
 
-# Create your models here.
 from django.db.models import Count
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Topic(models.Model):
@@ -88,9 +89,11 @@ class Post(models.Model):
         Topic,
         related_name='blog_posts'
     )
-    content = models.TextField(
-        null=True,
+    content = RichTextUploadingField()
+    banner = models.ImageField(
         blank=True,
+        null=True,
+        help_text='A banner image for the post'
     )
     created = models.DateTimeField(auto_now_add=True)  # Sets on create
     updated = models.DateTimeField(auto_now=True)  # Updates on each save
@@ -152,3 +155,35 @@ class Comment(models.Model):
     class Meta:
         """For ordering"""
         ordering = ['-created']
+
+
+class Contact(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    message = models.TextField()
+    submitted = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-submitted']
+
+    def __str__(self):
+        return f'{self.submitted.date()}: {self.email}'
+
+
+class Contest(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    photo = models.ImageField(
+        blank=True,
+        null=True,
+        help_text='Submission photo'
+    )
+    submitted = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-submitted']
+
+    def __str__(self):
+        return f'{self.submitted.date()}: {self.first_name} {self.last_name}'
