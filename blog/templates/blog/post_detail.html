@@ -33,9 +33,9 @@
           {{ comment.text|linebreaks }}
         </div>
         <div class="likes">
-          <a href="{% url 'api:comment-like' comment.id %}"><img src="{% static 'blog/thumbsup.png' %}" alt="Like" onclick="likeHandler(this)"></a> {{ comment.likes }}
+          <a href="{% url 'api:comment-like' comment.id %}"><img src="{% static 'blog/thumbsup.png' %}" class="thumb" alt="Like" onclick="likeHandler(this)"></a> {{ comment.likes }}
 <!--          <img src="{% static 'blog/thumbsup.png' %}" alt="Like" class="like"> {{ comment.likes }}-->
-          <a href="{% url 'api:comment-dislike' comment.id %}"><img src="{% static 'blog/thumbsdown.png' %}" alt="Dislike" onclick="likeHandler(this)"></a> {{ comment.dislikes }}
+          <a href="{% url 'api:comment-dislike' comment.id %}"><img src="{% static 'blog/thumbsdown.png' %}" class="thumb" alt="Dislike" onclick="likeHandler(this)"></a> {{ comment.dislikes }}
         </div>
       {% endfor %}
     {% endif %}
