@@ -148,9 +148,13 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)  # Sets on create
     updated = models.DateTimeField(auto_now=True)  # Updates on each save
+    likes = models.PositiveIntegerField(default=0)
+    dislikes = models.PositiveIntegerField(default=0)
+
+    # objects = CommentQuerySet.as_manager()
 
     def __str__(self):
-        return self.text
+        return f'{self.name} re: {self.post}'
 
     class Meta:
         """For ordering"""

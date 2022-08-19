@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'credit',
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [

@@ -23,6 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('', views.HomeView.as_view(), name="home"),  # Add our index view to the URL patterns
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
     # path('form-example/', views.form_example, name='form-example'),
     path(
         'formview-example/',

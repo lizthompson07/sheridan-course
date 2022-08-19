@@ -162,6 +162,20 @@ class PostDetailView(DetailView):
             published__day=self.kwargs['day'],
         )
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Get the post object
+        post = self.get_object()
+
+        # Set the post field on the form
+        comment_form = forms.CommentForm(initial={'post': post})
+        comments = models.Comment.objects.filter(post=post)
+
+        context['comment_form'] = comment_form
+        context['comments'] = comments.order_by('-created')
+
+        return context
+
 
 # TOPICS #
 

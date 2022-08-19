@@ -220,3 +220,26 @@ form .errorlist {
   background: #ccdbb9;
   color: #355430;
 }
+
+/* Comments */
+.comments {
+  border-top: 1px solid #eee;
+  margin-top: 5rem;
+}
+
+.comment {
+    margin-top: 1.5rem;
+}
+
+.comments .by-line {
+  color: #666;
+  font-weight: 600;
+}
+
+/* Likes */
+img {
+  height: 15px;
+  width: 15px;
+  padding: 0px 0px 3px 0px;
+  vertical-align: bottom;
+}

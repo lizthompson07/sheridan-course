@@ -2,6 +2,8 @@
 
 from django import forms
 
+from blog.models import Comment
+
 
 class NameForm(forms.Form):
     first_name = forms.CharField(label='First name', max_length=50)
@@ -26,3 +28,20 @@ class ExampleSignupForm(forms.Form):
         required=False,
         label='Do you wish to receive our newsletter?'
     )
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = [
+            'post',
+            'name',
+            'email',
+            'text',
+        ]
+        labels = {
+            'text': 'Comment'
+        }
+        widgets = {
+            'post': forms.HiddenInput()
+        }

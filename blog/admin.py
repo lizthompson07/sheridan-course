@@ -16,6 +16,8 @@ class CommentAdmin(admin.ModelAdmin):
         'name',
         'text',
         'approved',
+        'likes',
+        'dislikes',
         'created',
         'updated',
     )
